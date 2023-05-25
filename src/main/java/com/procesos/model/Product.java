@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,22 +14,12 @@ public class Product {
     @Column(name = "title")
     private String title;
     @Column(name = "price")
-    private String Price;
+    private double Price;
     @Column(name = "description")
     private String Description;
     @Column(name = "category")
     private String Category;
-    @Column(name = "image")
-    private String Image;
+    @Column(name = "stock")
+    private String Stock;
 
-    public Product() {
-    }
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
 }

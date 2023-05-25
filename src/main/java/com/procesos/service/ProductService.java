@@ -1,32 +1,34 @@
 package com.procesos.service;
 
 import com.procesos.model.Product;
+import com.procesos.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @Service
 public class ProductService {
-    private static final String API_URL = "https://fakestoreapi.com/products";
+    private final ProductRepository productRepository;
 
-    private final RestTemplate restTemplate;
-
-    public ProductService() {
-        this.restTemplate = new RestTemplate();
+    @Autowired
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
-    public Product[] getProductsFromExternalAPI() {
-        return restTemplate.getForObject(API_URL, Product[].class);
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 
-    public Product createProduct(Product product) {
-        return restTemplate.postForObject(API_URL, product, Product.class);
+    public Product getProductById(Long id) {
+        return productRepository.findById(id).orElse(null);
     }
 
-    public void updateProduct(Product product) {
-        restTemplate.put(API_URL + "/" + product.getId(), product);
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
     }
 
-    public void deleteProduct(Long productId) {
-        restTemplate.delete(API_URL + "/" + productId);
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
     }
 }
