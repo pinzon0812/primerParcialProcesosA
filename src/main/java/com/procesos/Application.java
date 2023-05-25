@@ -1,7 +1,7 @@
 package com.procesos;
 
-import com.procesos.model.Product;
-import com.procesos.service.ProductService;
+import com.procesos.models.Product;
+import com.procesos.services.ProductService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;

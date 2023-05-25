@@ -1,7 +1,7 @@
-package com.procesos.controller;
+package com.procesos.controllers;
 
-import com.procesos.model.Product;
-import com.procesos.service.ProductService;
+import com.procesos.models.Product;
+import com.procesos.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.procesos.model;
+package com.procesos.models;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.procesos.service;
+package com.procesos.services;
 
-import com.procesos.model.Product;
+import com.procesos.models.Product;
 import com.procesos.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
