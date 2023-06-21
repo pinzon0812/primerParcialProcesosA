@@ -1,8 +1,8 @@
 package com.procesos.controllers;
 
 
-import com.procesos.models.Book;
-import com.procesos.services.BookServiceImp;
+import com.procesos.models.Product;
+import com.procesos.services.ProductServiceImp;
 import com.procesos.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 @RequestMapping("/product")
 @RestController
-public class BookController {
+public class ProductController {
 
     @Autowired
-    private BookServiceImp serviceImp;
+    private ProductServiceImp serviceImp;
     @Autowired
     private JWTUtil jwtUtil;
 
@@ -71,9 +71,9 @@ public class BookController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateProduct(@PathVariable Long id, @RequestBody Book book, @RequestHeader(value = "Authorization") String token){
+    public ResponseEntity updateProduct(@PathVariable Long id, @RequestBody Product product, @RequestHeader(value = "Authorization") String token){
         if(!AuthToken(token)){return new ResponseEntity<>("Error Token",HttpStatus.UNAUTHORIZED);}
-        Boolean userResp = serviceImp.updateProduct(id, book);
+        Boolean userResp = serviceImp.updateProduct(id, product);
         Map map = new HashMap();
 
         if(userResp == true){

@@ -3,7 +3,9 @@ package com.procesos.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,6 +25,15 @@ public class User {
     private String password;
     @Column(length = 30)
     private Date birthday;
+
+    public void addProducts (Product elproduct){
+        if (products == null) products = new ArrayList<>();
+        products.add(elproduct);
+        elproduct.setUser(this);
+    }
+
+    @OneToMany(mappedBy = "user", cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Product> products;
 }
 
 
