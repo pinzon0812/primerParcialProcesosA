@@ -1,8 +1,8 @@
 package com.procesos.repository;
 
-import com.procesos.models.Product;
+import com.procesos.models.Products;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Products, Long> {
 
 }

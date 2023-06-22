@@ -1,12 +1,14 @@
 package com.procesos.services;
 
-import com.procesos.models.Product;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.procesos.models.Products;
 
 import java.util.List;
 
 public interface ProductService {
-    Product getProduct(Long id);
-    List<Product> allProduct();
-    Boolean createProduct();
-    Boolean updateProduct(Long id, Product product);
+    Products getProduct(Long id);
+    List<Products> allProduct();
+    Boolean createProduct(Long id, Long id_user) throws JsonProcessingException;
+    Boolean deleteProduct(Long id);
+    Boolean updateProduct(Long id, Products products);
 }
